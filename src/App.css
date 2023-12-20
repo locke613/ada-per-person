@@ -36,3 +36,9 @@
     transform: rotate(360deg);
   }
 }
+
+j2 {
+  font-size: 16px;
+  line-height: 34px;
+  font-family: Oswald;
+}
