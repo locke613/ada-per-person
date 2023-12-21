@@ -93,13 +93,13 @@ const App = () => {
         <hr />
         <div >
           <h2>
-            <span style={numStyle}>{adaTotalSupply.toLocaleString()}</span> 
+            <span style={numStyle}>{adaTotalSupply}</span> 
             <span style={textStyle}> Cardano (ADA)</span>
           </h2>
         </div>
         <div>
           <h2>
-            <span style={numStyle}>{worldPopulation.toLocaleString()}</span> 
+            <span style={numStyle}>{worldPopulation}</span> 
             <span style={textStyle}> People</span>
           </h2>
         </div>
