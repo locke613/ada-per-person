@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Header from './Header';
+import SupportUsPage from './SupportUs';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 const App = () => {
   const [worldPopulation, setWorldPopulation] = useState(null);
@@ -8,8 +10,13 @@ const App = () => {
   const [adaToPopulationRatio, setAdaToPopulationRatio] = useState(null);
   const textStyle = {
     fontSize: '16px',
-    lineHeight: '34px',
-    fontFamily: 'Montserrat',
+    lineHeight: 'normal',
+    fontFamily: 'Oswald',
+  };
+  const numStyle = {
+    fontSize: '28px',
+    lineHeight: 'normal',
+    fontFamily: 'Oswald',
   };
 
   useEffect(() => {
@@ -76,22 +83,29 @@ const App = () => {
   return (
     <div>
       <Header/>
-      <div style={{ backgroundColor: 'white', color: 'black', textAlign: 'center', padding: '20px' }}>
-        <div>
-          <h2 style={{ textStyle }}>ADA to World Population Ratio</h2>
-          {adaToPopulationRatio !== null ? <p>{adaToPopulationRatio} ADA per person</p> : <p>Loading...</p>}
-        </div>
-        <div>
-          <h2 style={{ textStyle }}>Cardano (ADA) Price (USD)</h2>
-          {adaPrice !== null ? <p>${adaPrice}</p> : <p>Loading...</p>}
-        </div>
+      <div style={{ backgroundColor: 'white', color: 'black', textAlign: 'center'}}>
         <div >
-          <h2 style={{ textStyle }}>Cardano (ADA) Total Supply</h2>
-          {adaTotalSupply !== null ? <p>{adaTotalSupply} ADA</p> : <p>Loading...</p>}
+          <h2>
+            <p style={textStyle}> Total ADA / World Population</p>
+            <p style={numStyle}>{adaToPopulationRatio}</p> 
+          </h2>
+        </div>
+        <hr />
+        <div >
+          <h2>
+            <span style={numStyle}>{adaTotalSupply.toLocaleString()}</span> 
+            <span style={textStyle}> Cardano (ADA)</span>
+          </h2>
         </div>
         <div>
-          <h2 style={{ textStyle }}>World Population</h2>
-          {worldPopulation !== null ? <p>{worldPopulation}</p> : <p>Loading...</p>}
+          <h2>
+            <span style={numStyle}>{worldPopulation.toLocaleString()}</span> 
+            <span style={textStyle}> People</span>
+          </h2>
+        </div>
+        <hr />
+        <div style={{ fontSize: '18px',fontFamily: 'Permanent Marker', padding: '20px' }}>
+          Cardano brings a new standard in technology – open and inclusive – to challenge the old and activate a new age of sustainable, globally-distributed innovation.
         </div>
       </div>
     </div>
