@@ -35,6 +35,19 @@ const App = () => {
       }
     };
 
+    fetchWorldPopulation();
+  }, []);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setWorldPopulation(prevPopulation => (prevPopulation !== null ? prevPopulation + 3 : null));
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+
     const fetchAdaPrice = async () => {
       try {
         const response = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=cardano&vs_currencies=usd');
@@ -68,7 +81,6 @@ const App = () => {
       }
     };
 
-    fetchWorldPopulation();
     fetchAdaPrice();
     fetchAdaSupply();
   }, []);
